@@ -30,10 +30,10 @@ export function parseRequest(req: IncomingMessage) {
     const parsedRequest: ParsedRequest = {
         fileType: extension === 'jpeg' ? extension : 'png',
         text: decodeURIComponent(text),
-        theme: theme === 'dark' ? 'dark' : 'light',
+        theme: theme === 'light' ? 'light' : 'dark',
         md: md === '1' || md === 'true',
         fontSize: fontSize || '96px',
-        images: getArray(images),
+        images: getArray(images) || ['https://suckmychic.com/wp-content/uploads/2020/07/og-logo.svg'],
         widths: getArray(widths),
         heights: getArray(heights),
     };
