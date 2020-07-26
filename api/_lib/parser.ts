@@ -37,7 +37,6 @@ export function parseRequest(req: IncomingMessage) {
         widths: getArray(widths),
         heights: getArray(heights),
     };
-    // parsedRequest.images = getDefaultImages(parsedRequest.images, parsedRequest.theme);
     return parsedRequest;
 }
 
@@ -50,17 +49,3 @@ function getArray(stringOrArray: string[] | string | undefined): string[] {
         return [stringOrArray];
     }
 }
-
-/* function getDefaultImages(images: string[], theme: Theme): string[] {
-    const defaultImage = theme === 'light'
-        ? 'https://suckmychic.com/wp-content/uploads/2020/07/smc-logo-blog.svg'
-        : 'https://suckmychic.com/wp-content/uploads/2020/07/smc-logo-blog.svg';
-
-    if (!images || !images[0]) {
-        return [defaultImage];
-    }
-    if (!images[0].startsWith('https://assets.vercel.com/') && !images[0].startsWith('https://assets.zeit.co/')) {
-        images[0] = defaultImage;
-    }
-    return images;
-} */
