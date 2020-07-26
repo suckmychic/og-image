@@ -142,14 +142,11 @@ const markdownOptions: DropdownOption[] = [
 ];
 
 const imageLightOptions: DropdownOption[] = [
-    { text: 'Blog', value: 'https://suckmychic.com/wp-content/uploads/2020/07/smc-logo-blog.svg' },
-    { text: 'Default', value: 'https://suckmychic.com/wp-content/themes/suck/img/logo.png' },
+    { text: 'Default', value: 'https://suckmychic.com/wp-content/uploads/2020/07/og-logo.svg' },
 ];
 
 const imageDarkOptions: DropdownOption[] = [
-    { text: 'Blog', value: 'https://suckmychic.com/wp-content/uploads/2020/07/smc-logo-blog.svg' },
-    { text: 'Badge', value: 'https://suckmychic.com/wp-content/uploads/2020/07/smc-logo-footer.svg' },
-    { text: 'Default', value: 'https://suckmychic.com/wp-content/themes/suck/img/logo.png' },
+    { text: 'Default', value: 'https://suckmychic.com/wp-content/uploads/2020/07/og-logo.svg' },
 ];
 
 const widthOptions = [

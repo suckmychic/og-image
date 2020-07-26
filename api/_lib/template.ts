@@ -9,6 +9,7 @@ const emojify = (text: string) => twemoji.parse(text, twOptions);
 
 const rglr = readFileSync(`${__dirname}/../_fonts/DrukWideMedium.woff2`).toString('base64');
 const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString('base64');
+// const pattern = require(`${__dirname}/../_images/og-pattern.svg`);
 
 function getCss(theme: string, fontSize: string) {
     let background = 'white';
@@ -34,13 +35,13 @@ function getCss(theme: string, fontSize: string) {
       }
 
     body {
+        background-image: url(https://suckmychic.com/wp-content/uploads/2020/07/og-pattern.svg);
+        background-size: cover;
+        background-position: right center;
         background-color: ${background};
-        background-size: 100px 100px;
         height: 100vh;
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
+        text-align: left;
+        padding: 100px;
     }
 
     code {
@@ -55,28 +56,20 @@ function getCss(theme: string, fontSize: string) {
     }
 
     .logo-wrapper {
-        display: flex;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
-        justify-items: center;
-    }
-    .logo-wrapper > img {
-        object-fit: contain;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        gap: 75px;
     }
 
     .logo {
-        margin: 0 75px;
+        object-fit: contain;
     }
 
     .plus {
         color: #BBB;
         font-family: Times New Roman, Verdana;
         font-size: 100px;
-    }
-
-    .spacer {
-        margin: 150px;
     }
 
     .emoji {
@@ -87,14 +80,20 @@ function getCss(theme: string, fontSize: string) {
     }
     
     .heading {
+        margin-top: 100px;
+        max-width: 1450px;
         font-family: 'Druk Wide Medium', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
-        line-height: 1.8;
+        line-height: 1.1;
+        text-align: left;
+    }
+    .heading.colored {
+        color: #f79bc1;
     }
     .heading.colored > span {
-        color: #f79bc1;
+        color: ${foreground};
     }
     `;
 }
@@ -111,13 +110,11 @@ export function getHtml(parsedReq: ParsedRequest) {
     </style>
     <body>
         <div>
-            <div class="spacer" />
             <div class="logo-wrapper">
                 ${images.map((img, i) =>
                     getPlusSign(i) + getImage(img, widths[i], heights[i])
                 ).join('')}
             </div>
-            <div class="spacer" />
             <div class="heading ${!md && 'colored'}">${emojify(
                 md
                 ? (
