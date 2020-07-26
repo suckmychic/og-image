@@ -1,6 +1,5 @@
 import { IncomingMessage } from 'http';
 import { parse } from 'url';
-// import { ParsedRequest, Theme } from './types';
 import { ParsedRequest } from './types';
 
 export function parseRequest(req: IncomingMessage) {
@@ -33,10 +32,11 @@ export function parseRequest(req: IncomingMessage) {
         theme: theme === 'light' ? 'light' : 'dark',
         md: md === '1' || md === 'true',
         fontSize: fontSize || '96px',
-        images: getArray(images) || ['https://suckmychic.com/wp-content/uploads/2020/07/og-logo.svg'],
+        images: getArray(images),
         widths: getArray(widths),
         heights: getArray(heights),
     };
+    parsedRequest.images = getDefaultImages(parsedRequest.images);
     return parsedRequest;
 }
 
@@ -48,4 +48,13 @@ function getArray(stringOrArray: string[] | string | undefined): string[] {
     } else {
         return [stringOrArray];
     }
+}
+
+function getDefaultImages(images: string[]): string[] {
+    const defaultImage = 'https://suckmychic.com/wp-content/uploads/2020/07/og-logo.svg';
+
+    if (!images || !images[0]) {
+        return [defaultImage];
+    }
+    return images;
 }
