@@ -67,6 +67,7 @@ function getCss(theme: string, fontSize: string) {
     }
     .logo:first-child {
         width: 300px;
+        height: 133px;
     }
 
     .plus {
