@@ -142,16 +142,14 @@ const markdownOptions: DropdownOption[] = [
 ];
 
 const imageLightOptions: DropdownOption[] = [
-    { text: 'Vercel', value: 'https://assets.vercel.com/image/upload/front/assets/design/vercel-triangle-black.svg' },
-    { text: 'Next.js', value: 'https://assets.vercel.com/image/upload/front/assets/design/nextjs-black-logo.svg' },
-    { text: 'Hyper', value: 'https://assets.vercel.com/image/upload/front/assets/design/hyper-color-logo.svg' },
+    { text: 'Blog', value: 'https://suckmychic.com/wp-content/uploads/2020/07/smc-logo-blog.svg' },
+    { text: 'Default', value: 'https://suckmychic.com/wp-content/themes/suck/img/logo.png' },
 ];
 
 const imageDarkOptions: DropdownOption[] = [
-
-    { text: 'Vercel', value: 'https://assets.vercel.com/image/upload/front/assets/design/vercel-triangle-white.svg' },
-    { text: 'Next.js', value: 'https://assets.vercel.com/image/upload/front/assets/design/nextjs-white-logo.svg' },
-    { text: 'Hyper', value: 'https://assets.vercel.com/image/upload/front/assets/design/hyper-bw-logo.svg' },
+    { text: 'Blog', value: 'https://suckmychic.com/wp-content/uploads/2020/07/smc-logo-blog.svg' },
+    { text: 'Badge', value: 'https://suckmychic.com/wp-content/uploads/2020/07/smc-logo-footer.svg' },
+    { text: 'Default', value: 'https://suckmychic.com/wp-content/themes/suck/img/logo.png' },
 ];
 
 const widthOptions = [
@@ -203,10 +201,10 @@ const App = (_: any, state: AppState, setState: SetState) => {
     const {
         fileType = 'png',
         fontSize = '100px',
-        theme = 'light',
-        md = true,
-        text = '**Hello** World',
-        images=[imageLightOptions[0].value],
+        theme = 'dark',
+        md = false,
+        text = 'Hello World',
+        images=[imageDarkOptions[0].value],
         widths=[],
         heights=[],
         showToast = false,
@@ -364,7 +362,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                         label: `Add Image ${images.length + 1}`,
                         onclick: () => {
                             const nextImage = images.length === 1
-                                ? 'https://cdn.jsdelivr.net/gh/remojansen/logo.ts@master/ts.svg'
+                                ? 'https://suckmychic.com/wp-content/themes/suck/img/logo.png'
                                 : '';
                             setLoadingState({ images: [...images, nextImage] })
                         }
