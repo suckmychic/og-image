@@ -41,7 +41,7 @@ function getCss(theme: string, fontSize: string) {
         background-color: ${background};
         height: 100vh;
         text-align: left;
-        padding: 100px;
+        padding: 60px;
     }
 
     code {
@@ -59,11 +59,14 @@ function getCss(theme: string, fontSize: string) {
         display: grid;
         grid-auto-flow: column;
         grid-auto-columns: max-content;
-        gap: 75px;
+        gap: 55px;
     }
 
     .logo {
         object-fit: contain;
+    }
+    .logo:first-child {
+        width: 300px;
     }
 
     .plus {
@@ -80,8 +83,8 @@ function getCss(theme: string, fontSize: string) {
     }
     
     .heading {
-        margin-top: 100px;
-        max-width: 1450px;
+        margin-top: 40px;
+        max-width: 760px;
         font-family: 'Druk Wide Medium', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
