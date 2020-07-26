@@ -131,7 +131,7 @@ const fileTypeOptions: DropdownOption[] = [
 ];
 
 const fontSizeOptions: DropdownOption[] = Array
-    .from({ length: 10 })
+    .from({ length: 4 })
     .map((_, i) => i * 25)
     .filter(n => n > 0)
     .map(n => ({ text: n + 'px', value: n + 'px' }));
@@ -197,7 +197,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
     };
     const {
         fileType = 'png',
-        fontSize = '100px',
+        fontSize = '50px',
         theme = 'dark',
         md = false,
         text = 'Hello World',
